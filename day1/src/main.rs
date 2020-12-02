@@ -32,12 +32,11 @@ fn read_file_to_vector() -> Result<Vec<i32>, io::Error> {
     Ok(expenses)
 }
 
-fn k_combination_n_sum(expenses: &Vec<i32>, k: usize, n: i32) -> Option<Vec<i32>> {
-    expenses
-        .iter()
-        .copied()
-        .combinations(k)
-        .find(|combination| combination.iter().sum::<i32>() == n)
+fn k_combinations_sum_to_n(input: &Vec<i32>, k: usize, n: i32) -> Option<Vec<i32>> {
+    input.iter()
+         .copied()
+         .combinations(k)
+         .find(|combo| combo.iter().sum::<i32>() == n)
 }
 
 // Find entries in "report.txt" that sum to 2020, and print their product
